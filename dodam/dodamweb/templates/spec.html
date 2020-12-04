@@ -60,6 +60,7 @@
 
             .aside {
                 display: flex;
+                flex-direction: column;
                 flex: none;
                 width: 50%;
                 padding-left: 10%;
@@ -68,37 +69,50 @@
 
             .main {
                 display: flex;
-                margin-top:10%;
-                padding-left:5%;
+                margin-top: 7%;
+                padding-left: 3%;
                 flex: 1;
                 overflow: auto;
             }
 
 
-            .music {
+            .book_cover{
                 display: flex;
-                width: 570px;
-                height: 130px;
-                padding-top: 50px;
-                padding-left: 80px;
+                margin-top: 15%;
+                width: 175px;
+                height: 245px;
             }
 
             .book-item {
                 display: flex;
-                margin-top: 80px;
-                background-image: url("../static/book_example.jpeg");
                 background-size: cover;
                 background-position: center;
                 width: 175px;
                 height: 245px;
-                margin-left: 45px;
+                margin-left: 3%;
+
             }
 
             .explanation {
-                /*display: flex;*/
-                margin-top: 10%;
-                padding-left: 30%;
+                display: flex;
+                flex-direction: column;
+                margin-top: 15%;
+                padding-left: 5%;
+                width : 70%;
+            }
 
+            .book_info{
+                display : flex;
+                height : 60%;
+                margin-right:5%;
+            }
+
+
+            .music {
+                display: flex;
+                height : 30%;
+                margin-right : 5%;
+                margin-top:5% ;
             }
 
 
@@ -116,52 +130,30 @@
             <div class="content">
 
                 <div class="aside">
-                    <div class='book-item'>
-                        <div class="explanation">
-                            <a href="#">책 제목</a>
-                            <p> 작가</p>
-                            <p> 책 소개</p>
-                        </div>
+                    <div class="book_info">
+                    <div class="book_cover"><img class="book-item"></div>
 
-                        <div class="music">
-                            <iframe width="100%" height="166" scrolling="no" frameborder="no"
-                                    allow="autoplay"
-                                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/286011346&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                            </iframe>
-                        </div>
-
+                    <div class="explanation">
+                        <a href="#" class="title">제목.</a>
+                        <p class="author">저자.</p>
+                        <p class="exp">책소개.</p>
                     </div>
+                        </div>
+
+                    <div class="music">
+                        <iframe width="100%" height="166" scrolling="no" frameborder="no"
+                                allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/286011346&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                        </iframe>
+                    </div>
+
                 </div>
 
                 <div class="main">
-                    <p > 책 속에서.</p>
+                    <p class="inthebook">책속에서내용.</p>
                 </div>
             </div>
         </div>
-
-
-        <!--왼쪽 페이지 : flexbox로 책표지, [제목+저자], 음악까지 내가원하는모양으로 배치가능한지 확인.-->
-        <!--        <div class="flex_container">-->
-        <!--            <div class='book-item flex_item'>-->
-        <!--                <div class="explanation">-->
-        <!--                    <a href="#" class="book-title"> 책 제목</a>-->
-        <!--                    <p class="author"> 작가</p>-->
-        <!--                    <p class="explaination"> 책소개</p>-->
-        <!--                </div>-->
-        <!--            </div>-->
-
-        <!--            <div class="music flex_item">-->
-        <!--                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"-->
-        <!--                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/286011346&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">-->
-        <!--                </iframe>-->
-        <!--            </div>-->
-
-        <!--            &lt;!&ndash;오른쪽 페이지 : 책속에서 크롤링해서 그 페이지 안에서 스크롤해서 책속에서 내용을 다 보여줄수있는지 확인&ndash;&gt;-->
-        <!--            <div>-->
-        <!--                <p class="explaination flex_item"> 책 속에서.</p>-->
-        <!--            </div>-->
-        <!--        </div>-->
-
 
     </body>
 </html>

@@ -38,13 +38,14 @@
 
             * {
                 font-family: 'Nanum Myeongjo', serif;
-                background-position: top;
+
             }
 
             /*fade-in-up 효과 코드*/
             body {
                 padding: 40px;
                 background-image: url('../static/background.jpg');
+                background-size : 100%;
 
 
             }
@@ -114,8 +115,6 @@
         <div class="animated animatedFadeInUp fadeInUp title">
 
             <a href="{% url 'shelf' %}"><img class="img-button"></a>
-
-<!--            <button type="button" class="img-button" onClick="location.href=" {% url 'shelf' %}""></button>-->
             <h6></h6>
             <h3>"도담도담"은,</h3>
             <h6>우리나라의 퓨전 국악과 함께 100권의 한국 소설을 미리 읽어볼 수 있는 서비스를 제공합니다.</h6>
@@ -127,4 +126,3 @@
 
 
 </html>
-
