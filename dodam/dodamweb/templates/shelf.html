@@ -135,42 +135,12 @@
 
             function makeBook(bookcover) {
                 let tempHtml =
-                    `<div id="abc">
-                    <div class ="books-box">
+                    `<div class ="books-box">
                         <img class="book-item" onClick="location.href="{% url 'spec' %}" src=${url}>
                         <div class='shelf-item'></div>
-                    </div>
-                </div>`
+                    </div>`
 
-                $("#books-box").append(tempHtml);
-            }
-
-            <!--시간 있으면 navbar에서 책 검색할 수 있도록 검색엔진 만들기.-->
-            function searchBook() {
-
-                $("#books-box").html('');
-                let search = $("#input").val();
-
-                $.ajax({
-                    type: "GET",
-                    url: "/search?book_searched=" + search,
-                    data: {},
-                    success: function (response) {
-                        console.log("success")
-                        // 2. 요청 성공 여부 확인하기
-                        if (response["result"] == "success") {
-
-                            $("#books-box").empty();
-                            let books = response["books"];
-                            // 3. 요청 성공했을 때 리뷰를 올바르게 화면에 나타내기
-                            for (let i = 0; i < books.length; i++) {
-                                makeBook(reviews[i]["bookcover"]);
-                            }
-                        } else {
-                            alert("리뷰를 받아오지 못했습니다");
-                        }
-                    }
-                })
+                $("#abc").append(tempHtml);
             }
 
         </script>
@@ -182,60 +152,44 @@
 
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand">도담도담의 책장.</a>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="책을 검색해보세요." aria-label="Search">
-                <button onclick="searchBook()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
         </nav>
 
 
-        <div id="abc">
-            <div class="books-box">
-                <a href="{% url 'spec' %}"><img class="book-item"></a>
+         <div id="abc">
+             <div class="books-box">
+                <a href="{% url 'spec' %}"><img src="{{ book1 }}" class="book-item"></a>
+                <div class='shelf-item'></div>
+            </div><div class="books-box">
+                <a href="{% url 'spec' %}"><img src="{{ book2 }}" class="book-item"></a>
+                <div class='shelf-item'></div>
+            </div><div class="books-box">
+                <a href="{% url 'spec' %}"><img src="{{ book3 }}" class="book-item"></a>
+                <div class='shelf-item'></div>
+            </div><div class="books-box">
+                <a href="{% url 'spec' %}"><img src="{{ book4 }}" class="book-item"></a>
+                <div class='shelf-item'></div>
+            </div><div class="books-box">
+                <a href="{% url 'spec' %}"><img src="{{ book5 }}" class="book-item"></a>
+                <div class='shelf-item'></div>
+            </div><div class="books-box">
+                <a href="{% url 'spec' %}"><img src="{{ book6 }}" class="book-item"></a>
+                <div class='shelf-item'></div>
+            </div><div class="books-box">
+                <a href="{% url 'spec' %}"><img src="{{ book7 }}" class="book-item"></a>
+                <div class='shelf-item'></div>
+            </div><div class="books-box">
+                <a href="{% url 'spec' %}"><img src="{{ book8 }}" class="book-item"></a>
+                <div class='shelf-item'></div>
+            </div><div class="books-box">
+                <a href="{% url 'spec' %}"><img src="{{ book9 }}" class="book-item"></a>
                 <div class='shelf-item'></div>
             </div>
-
             <div class="books-box">
-                <a href="{% url 'spec' %}"><img class="book-item"></a>
+                <a href="{% url 'spec' %}"><img src="{{ book10 }}" class="book-item"></a>
                 <div class='shelf-item'></div>
             </div>
-
-            <div class="books-box">
-                <a href="{% url 'spec' %}"><img class="book-item"></a>
-                <div class='shelf-item'></div>
-            </div>
-
-            <div class="books-box">
-                <a href="{% url 'spec' %}"><img class="book-item"></a>
-                <div class='shelf-item'></div>
-            </div>
-
-            <div class="books-box">
-                <a href="{% url 'spec' %}"><img class="book-item"></a>
-                <div class='shelf-item'></div>
-            </div>
-
-            <div class="books-box">
-                <a href="{% url 'spec' %}"><img class="book-item"></a>
-                <div class='shelf-item'></div>
-            </div>
-
-            <div class="books-box">
-                <a href="{% url 'spec' %}"><img class="book-item"></a>
-                <div class='shelf-item'></div>
-            </div>
-
-            <div class="books-box">
-                <a href="{% url 'spec' %}"><img class="book-item"></a>
-                <div class='shelf-item'></div>
-            </div>
-
-            <div class="books-box">
-                <a href="{% url 'spec' %}"><img class="book-item"></a>
-                <div class='shelf-item'></div>
-            </div>
-
         </div>
+
 
 
     </body>
