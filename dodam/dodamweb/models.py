@@ -19,5 +19,5 @@ class music(models.Model):
     music_name = models.CharField(max_length=100)
     singer = models.CharField(max_length=100)
     mood = models.CharField(max_length=10)
-    embedded_code = models.TextField
+    embedded_code = models.TextField()
 

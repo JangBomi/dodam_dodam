@@ -35,17 +35,7 @@ with open(CSV_PATH, "r", encoding="utf-8") as csvfile:  # 4. newline =''
             # 6
         )
 
-CSV_PATH_INBOOK = './csv/in_book.csv'
 
-with open(CSV_PATH_INBOOK, "r", encoding="utf-8") as csvfile:
-    data_reader = csv.reader(csvfile)
-
-    for row in data_reader:
-        in_book.objects.create(  # 5. class명.objects.create
-            book_name=row[0],
-            full_intro=row[1],
-            # 6
-        )
 
 CSV_PATH_MUSIC = './csv/music.csv'
 
@@ -56,7 +46,7 @@ with open(CSV_PATH_MUSIC, "r", encoding="utf-8") as csvfile:
         music.objects.create(  # 5. class명.objects.create
             music_name=row[0],
             singer=row[1],
-            moode = row[2],
+            mood = row[2],
             embedded_code = row[3],
             # 6
         )
