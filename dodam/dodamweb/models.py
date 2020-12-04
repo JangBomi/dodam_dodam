@@ -10,6 +10,9 @@ class book_info(models.Model):
     short_intro = models.TextField()
     url = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.book_name
+
 
 class in_book(models.Model):
     book_name = models.ForeignKey(book_info, on_delete=models.CASCADE)
