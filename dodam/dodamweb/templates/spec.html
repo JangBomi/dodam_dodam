@@ -70,6 +70,7 @@
             flex-shrink: 1;
         }
 
+
         .main {
             display: flex;
             flex: 1;
@@ -141,34 +142,38 @@
         }
 
         .inthebook {
-            display: flex;
-            font-size: medium;
-            flex-shrink: 1;
-            margin-top: 40%;
-            margin-bottom: 40%;
-        }
+                display: flex;
+                font-size: medium;
+                font-style: italic;
+                flex-shrink: 1;
+                margin-top:40%;
+                margin-bottom: 40%;
+            }
 
 
     </style>
 
     <script>
+        let to_change = to_change = "{{ random_music.embedded_code }}"
+        let tempHtml = `${to_change}`
+        $("#music").append(tempHtml)
 
-        $(function(){
-            to_change = "{{ random_music.embedded_code }}"
-            $('.music').html(to_change);
-    });
 
         {#$(document).ready(function () {#}
         {#    to_change = "{{ random_music.embedded_code }}""#}
         {#    var stringToHTML = change(to_change)#}
         {#        $("#music").append(stringToHTML)#}
-        {#});#}
+        {#})
+        ;
+        #}
         {##}
         {#function change(str) {#}
         {#    var parser = new DOMParser();#}
         {#    var doc = parser.parseFromString(str, 'text/html');#}
         {#    return doc.body;#}
-        {#};#}
+        {
+            #};
+        #}
     </script>
 
 
@@ -180,35 +185,33 @@
 
     <div class="content">
 
+
+
+        <a href="{{request.META.HTTP_REFERER}}">뒤로가기</a>
+
         <div class="aside">
             <div class="book_info">
                 <div class="book_item"><img class="book_cover" src="{{ book.book_img }}"></div>
 
                 <div class="explanation">
-                    <a href="#" class="title">{{ book.book_name }}</a>
+                    <a href="{{ book.url }}" class="title">{{ book.book_name }}</a>
                     <p class="author">{{ book.writer }}</p>
                     <p class="exp">{{ book.short_intro }}</p>
                 </div>
             </div>
 
-            <div class="music" id="music"></div>
 
 
+
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                    src={{ random_music }}></iframe>
         </div>
->
-        <div class="main">
-            <p class="inthebook">{{ inbook0 }}</p>
-            <p class="inthebook">{{ inbook1 }}</p>
-            <p class="inthebook">{{ inbook2 }}</p>
-            <p class="inthebook">{{ inbook3 }}</p>
-            <p class="inthebook">{{ inbook4 }}</p>
-            <p class="inthebook">{{ inbook5 }}</p>
-            <p class="inthebook">{{ inbook6 }}</p>
-            <p class="inthebook">{{ inbook7 }}</p>
-            <p class="inthebook">{{ inbook8 }}</p>
-            <p class="inthebook">{{ inbook9 }}</p>
-
+        <div class = "main">
+            {% for inbok in inbook %}
+                <p class="inthebook">{{ inbok }}</p>
+            {% endfor %}
         </div>
+
     </div>
 </div>
 
