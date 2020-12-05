@@ -108,22 +108,92 @@
             margin: 0 5px;
         }
 
+        .q {
+            text-align: center;
+        }
 
+        .t {
+            text-align: center;
+        }
+
+        .a {
+            text-align: center;
+        }
+
+        #myProgress {
+            width: 30%;
+            margin-left: 70%;
+            background-color: grey;
+        }
+
+        #myBar {
+            width: 1%;
+            height: 30px;
+            background-color: #444444;
+        }
     </style>
+    <script>
+        {#function add_alert() {#}
+        {#    alert("책을 찾고 있습니다!")#}
+        {#}#}
 
+            var i = 0;
+            let probar = `<div id="myProgress"><div id="myBar"></div></div>`
+
+            function add_alert() {
+                $("#navbar").append(probar)
+                if (i == 0) {
+                    i = 1;
+                    var elem = document.getElementById("myBar");
+                    var width = 1;
+                    var id = setInterval(frame, 200);
+
+                    function frame() {
+                        if (width >= 100) {
+                            clearInterval(id);
+                            i = 0;
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
+            }
+    </script>
 
 </head>
 
 <body>
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">도담도담의 책장.</a>
+{% if isurl == False %}
+    <script type="text/javascript">
+        alert('책이 없습니다 \n다른 책을 검색하세요.')
+        window.location.href = '/shelf/';
+    </script>
 
-    <form action="" method="get">
+{% endif %}
+{% if iscrawling == False %}
+    <script type="text/javascript">
+        alert('책 정보를 가져오지 못했습니다 \n다른 책을 검색하세요.')
+        window.location.href = '/shelf/';
+    </script>
+{% endif %}
+<nav id="navbar" class="navbar navbar-light bg-light">
+    <a href='/shelf/' class="navbar-brand">도담도담의 책장.</a>
+    <form class="search" action="" method="get">
         {% csrf_token %}
-        <input type="search" placeholder="Search" name="q">
-        <button type="submit" value="search">
+        <input class="q" type="search" placeholder="원하는 책을 검색하세요." name="q">
+        <button type="submit" value="search">검색
         </button>
     </form>
+
+    <form class="add" action="" method="get">
+        {% csrf_token %}
+        <input class="t" type="search" placeholder="추가하고 싶은 책의 제목" name="t">
+        <input class="a" type="search" placeholder="책의 저자" name="a">
+        <button onclick="add_alert()" type="submit" value="search">추가</button>
+    </form>
+
+
 </nav>
 
 

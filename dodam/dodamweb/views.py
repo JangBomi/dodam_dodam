@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
 import sqlite3
@@ -6,6 +7,8 @@ import json
 import html
 
 import compare_with
+import crawler
+import aladin_API
 import random
 from django.views.generic.edit import FormView
 
@@ -25,6 +28,22 @@ def index(request):
 
 def shelf(request):
     booklist = book_info.objects.all()
+    if 't' in request.GET:
+        title = request.GET.get('t')
+        author = request.GET.get('a')
+        try:
+            url_src = aladin_API.search_url(title+" "+author)
+        except:
+            is_url = False
+            return render(request, 'shelf.html', {'booklist':booklist, 'isurl':is_url})
+        try:
+            crawler.getBookInfoCrawler(url_src)
+        except:
+            is_crawling = False
+            return render(request, 'shelf.html', {'booklist':booklist, 'iscrawling':is_crawling})
+        return render(request, 'shelf.html', {'booklist':booklist})
+
+
     #검색기능 구현
     if 'q' in request.GET:
         query = request.GET.get('q')
@@ -53,7 +72,7 @@ def spec(request, pk):
     # 감정
     emotion = compare_with.compare_with(book.short_intro)
     emo = music.objects.filter(mood = emotion)
-    print(emo)
+    print(emotion)
     random_music = random.choice(emo)
     print(random_music)
     dict['random_music'] = random_music.embedded_code
