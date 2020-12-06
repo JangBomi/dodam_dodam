@@ -25,7 +25,13 @@ SECRET_KEY = '))-#a(yowvsfv__^u&7vm32v&u5$kc#t2^$@^!qbgv061=lm%q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['13.209.49.122']
+ALLOWED_HOSTS = [
+    'localhost',
+    'ec2-13-209-49-122.ap-northeast-2.compute.amazonaws.com'
+    'cafetwoline.shop',
+    '13.209.49.122'
+    
+]
 
 
 # Application definition
