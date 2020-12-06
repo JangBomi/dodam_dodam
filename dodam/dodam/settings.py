@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [
     '13.209.49.122',
     '211.251.251.236',
     '211.253.142.109',
+    'dd.ktpaasta-v4.kr',
     
 ]
 
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dodamweb',
+    
 
 ]
 
