@@ -11,7 +11,7 @@ from dodamweb.models import *
 
 def getBookInfoCrawler(url):
     # 본인의 크롬드라이버 경로 설정
-    chromedriver = 'chromedriver.exe'
+    chromedriver = './chromedriver'
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('headless')
