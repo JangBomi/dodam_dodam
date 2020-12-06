@@ -17,7 +17,7 @@ def getBookInfoCrawler(url):
     chrome_options.add_argument('headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('lang=ko_KR')
-    driver = webdriver.Chrome(chromedriver, chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=chrome_options)
     driver.get(url)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight/8);")
     time.sleep(1)
