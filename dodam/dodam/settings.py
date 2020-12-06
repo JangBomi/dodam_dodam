@@ -27,13 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '.ap-northeast-2.compute.amazonaws.com'
     'cafetwoline.shop',
     '13.209.49.122',
-    '211.251.251.236',
-    '211.253.142.109',
-    'dd.ktpaasta-v4.kr',
-    'cafetwoline.shop:8000',
+    
     
 ]
 
